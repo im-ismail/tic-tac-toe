@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #2b2d42;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.audio,
+.multiplayer,
+.reset{
+    width: 65px;
+    height: 65px;
+}
+
+.menu img {
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.menu img:hover{
+    width: 60px;
+    height: 60px;
+}
+
+.table {
+    border: 5px solid rgb(111, 241, 120);
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 33.33%;
+    height: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.box img {
+    width: 90%;
+    height: 90%;
+    cursor: not-allowed;
+}
+
+#topLeft,
+#topCenter,
+#topRight,
+#middleLeft,
+#middleCenter,
+#middleRight {
+    border-bottom: 4px solid white;
+}
+
+#topCenter,
+#topRight,
+#middleCenter,
+#middleRight,
+#bottomCenter,
+#bottomRight {
+    border-left: 4px solid white;
+}
+
+.display {
+    position: absolute;
+    top: 30%;
+    left: 30px;
+    font-size: 1.3rem;
+    color: #fff;
+    font-family: 'Bungee Spice', cursive;
+    transition-duration: 1s;
+}
+
+.playerScore,
+.tieScore,
+.computerScore {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .table {
+        top: 65%;
+    }
+
+    .display {
+        top: 10px;
+        left: 60% !important;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .menu {
+        position: static;
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+
+    .audio,
+    .multiplayer,
+    .reset{
+        width: 60px;
+        height: 60px;
+    }
+    
+    .menu img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .menu img:hover{
+        width: 55px;
+        height: 55px;
+    }
+
+    .table {
+        width: 300px;
+        height: 300px;
+        position: static;
+        transform: translate(0, 0);
+        margin: 20px auto;
+        margin-bottom: 30px;
+    }
+
+    .display {
+        position: static;
+        display: flex;
+        font-size: 1rem;
+        column-gap: 15px;
+        margin-left: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* All animation  */
+/* Reset animation */
+.resetAnim {
+    transition: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-duration: 1s;
+    transform: rotate(360deg);
+}
+
+/* Animation when player wons */
+.win {
+    animation-name: heartBeat;
+    animation-iteration-count: infinite;
+    animation-duration: 0.6s;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes heartBeat {
+    from {
+        max-width: 100%;
+        max-height: 100%;
+        transform: scale(1.05);
+    }
+
+    to {
+        filter: drop-shadow(15px 15px 18px red) invert(75%);
+        transform: scale(0.95);
+    }
+}
+
+/* Animation to show if match tie */
+.tie {
+    animation-name: borderAnim;
+    animation-iteration-count: infinite;
+    animation-duration: 0.6s;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes borderAnim {
+    from {
+        border-color: #2b2d42;
+    }
+
+    to {
+        border-color: white;
+    }
+}
+
+/* Animation to understand which player turns */
+.currentPlayer {
+    animation: playerAnim infinite 0.5s alternate-reverse;
+}
+
+@keyframes playerAnim {
+    from {
+        transform: scale(1.1);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Designing popup box to show after winning */
+.popup {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 250px;
+    min-height: 75px;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: #fff;
+    background-color: rgb(24, 52, 144);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 15px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1), 0 8px 16px rgba(85, 188, 25, 0.1);
+    transition: all 0.5s;
+}
+
+.msg {
+    padding: 10px;
+    font-family: cursive;
+}
+
+.msg-btn {
+    color: #fff;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(65, 31, 117);
+    background-color: #fff;
+    color: black;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.toggle {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}

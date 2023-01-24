@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="./media/favicon.ico" rel="icon" type="image/x-icon" />
+    <title>Tic-Tac-toe, Single and Multiplayer game</title>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="audio">
+            <img class="volumeIcon" src="./media/audioOn.png" alt="volume icon">
+        </div>
+        <div class="multiplayer">
+            <img class="multiplayerIcon" src="./media/singlePlayer.png" alt="multiplayer icon">
+        </div>
+        <div class="reset">
+            <img class="resetIcon" src="./media/reset.png" alt="multiplayer icon">
+        </div>
+    </div>
+    <div class="table">
+        <div class="box" id="topLeft"></div>
+        <div class="box" id="topCenter"></div>
+        <div class="box" id="topRight"></div>
+        <div class="box" id="middleLeft"></div>
+        <div class="box" id="middleCenter"></div>
+        <div class="box" id="middleRight"></div>
+        <div class="box" id="bottomLeft"></div>
+        <div class="box" id="bottomCenter"></div>
+        <div class="box" id="bottomRight"></div>
+    </div>
+    <div class="display">
+        <div class="playerScore">
+            <p class="player1">Player :</p>
+            <h2 class="playerSc">0</h2>
+        </div>
+        <div class="tieScore">
+            <p>Tie :</p>
+            <h2 class="tieSc">0</h2>
+        </div>
+        <div class="computerScore">
+            <p class="player2">Computer :</p>
+            <h2 class="computerSc">0</h2>
+        </div>
+    </div>
+    <div class="popup">
+        <h3 class="msg">Player1 Won</h3>
+        <button class="msg-btn">Play Again</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
